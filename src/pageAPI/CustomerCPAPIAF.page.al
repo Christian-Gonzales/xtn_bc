@@ -8,7 +8,7 @@ page 50000 "Vendor VP API BETT"
     APIGroup = 'sale';
     APIVersion = 'v1.0';
     EntityName = 'customerCP';
-    EntitySetName = 'customersVP';
+    EntitySetName = 'customersCP';
     Caption = 'Customer CP API', Locked = true;
     DelayedInsert = true;
     PageType = API;
