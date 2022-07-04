@@ -28,7 +28,6 @@ page 50000 "Vendor VP API BETT"
                     ApplicationArea = All;
                     Editable = false;
                 }
-
                 field(custName; Rec.Name)
                 {
                     ApplicationArea = All;
