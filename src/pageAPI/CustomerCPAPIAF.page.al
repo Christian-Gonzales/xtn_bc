@@ -26,7 +26,6 @@ page 50000 "Vendor VP API BETT"
                 field(custNo; Rec."No.")
                 {
                     ApplicationArea = All;
-
                     Editable = false;
                 }
 
