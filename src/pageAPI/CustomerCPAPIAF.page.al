@@ -1,8 +1,9 @@
 /// <summary>
 /// Page Customer API (ID 50000) 
 /// Developer - Christian Gonzales
+/// Customer Lists V1.1
 /// </summary>
-page 50000 "Vendor VP API BETT"
+page 50000 "Customer CP API AF"
 {
     APIPublisher = 'altafirma';
     APIGroup = 'sale';
@@ -16,7 +17,6 @@ page 50000 "Vendor VP API BETT"
     InsertAllowed = false;
     DeleteAllowed = false;
     ODataKeyFields = "No.";
-
     layout
     {
         area(Content)
@@ -33,7 +33,35 @@ page 50000 "Vendor VP API BETT"
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field(emailAddress; Rec."E-Mail")
+
+                field(custContactName; Rec.Contact)
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+
+                //field(custABN; Rec.ABN) 
+                //{
+                //ApplicationArea = All;
+                //Editable = false;
+                //}
+                field(custEmailAddress; Rec."E-Mail")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field(custPhoneNo; Rec."Phone No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field(custMobilePhoneNo; Rec."Mobile Phone No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+
+                field(custFaxNo; Rec."Fax No.")
                 {
                     ApplicationArea = All;
                     Editable = false;
