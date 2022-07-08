@@ -2,7 +2,7 @@
   "id": "e8d05ef2-259a-4600-9784-84fc43071d97",
   "name": "Customer Portal Integration",
   "publisher": "AltaFirma Group",
-  "version": "20.2.0.0",
+  "version": "20.3.0.0",
   "brief": "AltaFirma Group",
   "description": "",
   "privacyStatement": "",
@@ -16,8 +16,8 @@
   "application": "20.0.0.0",
   "idRanges": [
     {
-      "from": 50000,
-      "to": 55000    
+      "from": 50800,
+      "to": 50900    
     }
   ],
   "resourceExposurePolicy": {

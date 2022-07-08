@@ -1,9 +1,8 @@
 /// <summary>
-/// Page Customer API (ID 50000) 
-/// Developer - Christian Gonzales
-/// Customer Lists V1.1
+/// Page Customer API (ID 50800) 
+/// AF-001 - Developer - Christian Gonzales
 /// </summary>
-page 50000 "Customer CP API AF"
+page 50800 "Customer CP API AF"
 {
     APIPublisher = 'altafirma';
     APIGroup = 'sale';
