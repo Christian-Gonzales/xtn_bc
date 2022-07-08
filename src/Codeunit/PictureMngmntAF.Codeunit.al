@@ -12,7 +12,6 @@ codeunit 50800 "Picture Mngmnt AF"
     procedure GetItemPictureAsJson(ItemNo: Code[20]): Text;
     var
         Item: Record Item;
-        //TempBlob: Codeunit "Temp Blob";
         TenantMedia: Record "Tenant Media";
         PictureAsText: Text;
         PictureInstream: Instream;
@@ -32,11 +31,7 @@ codeunit 50800 "Picture Mngmnt AF"
         if TenantMedia.Content.HasValue then begin
             Clear(PictureAsText);
             Clear(PictureInstream);
-            //Clear(TempBlob);
             TenantMedia.Content.CreateInStream(PictureInstream);
-            //TempBlob.CreateOutStream(PictureOutStream, TextEncoding::Windows);
-            //CopyStream(PictureOutStream,PictureInstream);
-            //TempBlob.CreateInStream(PictureInstream)
             PictureAsText := Base64Convert.ToBase64(PictureInstream);
             JObject.Add('picture', PictureAsText);
             JObject.SelectToken('picture', JToken);
