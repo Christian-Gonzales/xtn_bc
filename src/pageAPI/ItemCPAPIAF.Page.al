@@ -32,6 +32,21 @@ page 50801 "Item CP API AF"
                     ApplicationArea = All;
                     Editable = false;
                 }
+                field(itemWebName; Rec.Description)
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field(itemCategoryCode; Rec."Item Category Code")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field(itemUOM; Rec."Base Unit of Measure")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                }
                 field(itemPicture; PictureAsText)
                 {
                     ApplicationArea = All;

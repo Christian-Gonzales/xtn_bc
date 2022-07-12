@@ -7,8 +7,8 @@ page 50802 "Sales Order Header CP API AF"
     APIPublisher = 'altafirma';
     APIGroup = 'sale';
     APIVersion = 'v1.0';
-    EntityName = 'insertSalesOrderHeaderCP';
-    EntitySetName = 'insertSalesOrdersHeaderCP';
+    EntityName = 'SalesOrderHeaderCP';
+    EntitySetName = 'SalesOrdersHeaderCP';
     Caption = 'Sales Order CP API', Locked = true;
     DelayedInsert = true;
     PageType = API;
@@ -16,7 +16,7 @@ page 50802 "Sales Order Header CP API AF"
     InsertAllowed = true;
     DeleteAllowed = false;
     SourceTableView = where("Document Type" = const(Order));
-    ODataKeyFields = "No.";
+    ODataKeyFields = "No.", "Document Type";
 
     layout
     {
@@ -24,20 +24,30 @@ page 50802 "Sales Order Header CP API AF"
         {
             repeater(GroupName)
             {
+                field("DocType"; Rec."Document Type")
+                {
+                    Caption = 'No';
+                    ApplicationArea = All;
+                }
                 field(no; Rec."No.")
                 {
                     Caption = 'No';
                     ApplicationArea = All;
-                    Visible = false;
                 }
                 field(docNo; DocNo)
                 {
                     Caption = 'DocNo';
                     ApplicationArea = All;
                 }
-                field(sellToCustNo; SellToCustomerNo)
+                field(sellToCustomerNo; SellToCustomerNo)
                 {
-                    Caption = 'DocNo';
+                    Caption = 'SellToCustomerNo';
+                    ApplicationArea = All;
+                }
+
+                field(externalDocNo; ExternalDocNo)
+                {
+                    Caption = 'ExternalDocno';
                     ApplicationArea = All;
                 }
 
@@ -49,6 +59,7 @@ page 50802 "Sales Order Header CP API AF"
     begin
         DocNo := Rec."No.";
         SellToCustomerNo := Rec."Sell-to Customer No.";
+        ExternalDocNo := Rec."External Document No.";
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -61,6 +72,7 @@ page 50802 "Sales Order Header CP API AF"
         SalesOrderHeader."No." := DocNo; //If using Manual No. Series
         SalesOrderHeader.INSERT(TRUE);
         SalesOrderHeader.Validate("Sell-to Customer No.", SellToCustomerNo);
+        SalesOrderHeader."External Document No." := ExternalDocNo;
         SalesOrderHeader.MODIFY(TRUE);
 
         UpdateResponse();
@@ -68,12 +80,21 @@ page 50802 "Sales Order Header CP API AF"
         exit(false);
     end;
 
+    trigger OnModifyRecord(): Boolean
+    begin
+        Rec."External Document No." := ExternalDocNo;
+    end;
+
+    /// <summary>
+    /// UpdateResponse - use to update the API Response after insert
+    /// </summary>
     local procedure UpdateResponse()
     var
 
     begin
         DocNo := SalesOrderHeader."No.";
         SellToCustomerNo := SalesOrderHeader."Sell-to Customer No.";
+        ExternalDocNo := SalesOrderHeader."External Document No.";
     end;
 
     /// <summary>
@@ -103,5 +124,6 @@ page 50802 "Sales Order Header CP API AF"
         SalesOrderHeader: Record "Sales Header";
         DocNo: Code[20];
         SellToCustomerNo: Code[20];
+        ExternalDocNo: Code[20];
 
 }
