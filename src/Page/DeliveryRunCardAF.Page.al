@@ -5,7 +5,7 @@
 /// </summary>
 page 50831 "Delivery Run Card AF"
 {
-    Caption = 'Delivery Run Card';
+    Caption = 'Delivery Run Card Setup';
     PageType = Card;
     SourceTable = "Delivery Run AF";
     DelayedInsert = true;
@@ -15,9 +15,9 @@ page 50831 "Delivery Run Card AF"
     {
         area(Content)
         {
-            repeater(Group)
+            Group("Delivery Run")
             {
-                Caption = 'Delivery Run Setup';
+                Caption = 'General';
                 field("Run Code"; Rec."Run Code")
                 {
                     ApplicationArea = All;
@@ -28,44 +28,49 @@ page 50831 "Delivery Run Card AF"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the run description of delivery run.';
                 }
+            }
+
+            Group("Allowable Day")
+            {
+                Caption = 'Setup';
                 field(Monday; Rec.Monday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
                 field(Tuesday; Rec.Tuesday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
 
                 field(Wednesday; Rec.Wednesday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
 
                 field(Thursday; Rec.Thursday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
 
                 field(Friday; Rec.Friday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
 
                 field(Saturday; Rec.Saturday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
                 field(Sunday; Rec.Sunday)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Allowable days of the week applicable for the run.';
+                    ToolTip = 'Allow day of the week applicable for the run.';
                 }
             }
         }
