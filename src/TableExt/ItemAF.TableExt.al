@@ -3,7 +3,7 @@
 /// TableExtension ItemAF (ID 50800) extends Record Item.
 /// AF-001 - Developer - Christian Gonzales
 /// </summary>
-tableextension 50800 ItemAF extends "Item"
+tableextension 50800 ItemAF extends "Item"//xtn-Should not be included
 {
     fields
     {
