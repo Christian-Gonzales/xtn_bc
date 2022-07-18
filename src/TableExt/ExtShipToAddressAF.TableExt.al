@@ -7,7 +7,7 @@ tableextension 50850 ExtShipToAddressAF extends "Ship-to Address"
 {
     fields
     {
-        field(61500; "Delivery Run Code AF"; Code[20])
+        field(50800; "Delivery Run Code AF"; Code[20])
         {
             Caption = 'Delivery Run Code';
             DataClassification = CustomerContent;
