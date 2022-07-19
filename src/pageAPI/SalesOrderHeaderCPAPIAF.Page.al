@@ -51,6 +51,12 @@ page 50802 "Sales Order Header CP API AF"
                     ApplicationArea = All;
                 }
 
+                field(shipmentDate; ShipmentDate)
+                {
+                    Caption = 'ShipmentDate';
+                    ApplicationArea = All;
+                }
+
             }
         }
     }
@@ -60,6 +66,7 @@ page 50802 "Sales Order Header CP API AF"
         DocNo := Rec."No.";
         SellToCustomerNo := Rec."Sell-to Customer No.";
         ExternalDocNo := Rec."External Document No.";
+        ShipmentDate := Rec."Shipment Date";
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -73,6 +80,7 @@ page 50802 "Sales Order Header CP API AF"
         SalesOrderHeader.INSERT(TRUE);
         SalesOrderHeader.Validate("Sell-to Customer No.", SellToCustomerNo);
         SalesOrderHeader."External Document No." := ExternalDocNo;
+        SalesOrderHeader."Shipment Date" := ShipmentDate;
         SalesOrderHeader.MODIFY(TRUE);
 
         UpdateResponse();
@@ -95,6 +103,7 @@ page 50802 "Sales Order Header CP API AF"
         DocNo := SalesOrderHeader."No.";
         SellToCustomerNo := SalesOrderHeader."Sell-to Customer No.";
         ExternalDocNo := SalesOrderHeader."External Document No.";
+        ShipmentDate := SalesOrderHeader."Shipment Date";
     end;
 
     /// <summary>
@@ -125,5 +134,7 @@ page 50802 "Sales Order Header CP API AF"
         DocNo: Code[20];
         SellToCustomerNo: Code[20];
         ExternalDocNo: Code[20];
+
+        ShipmentDate: Date;
 
 }
