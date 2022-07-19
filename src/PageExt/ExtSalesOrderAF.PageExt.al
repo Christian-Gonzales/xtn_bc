@@ -11,8 +11,20 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
         {
             field("Delivery Run Code AF"; Rec."Delivery Run Code AF")
             {
-                Caption = 'Delivery Run Code';
                 ToolTip = 'Specifies the delivery run code use in ship to address.';
+                ApplicationArea = All;
+                Editable = false;
+            }
+            field("Order Entry Time AF"; Rec."Order Entry Time AF")
+            {
+                ToolTip = 'Specifies the order entry time.';
+                ApplicationArea = All;
+                Editable = false;
+            }
+
+            field("Cust. Portal Cut off Time"; Rec."Cust. Portal Cut off Time AF")
+            {
+                ToolTip = 'Specifies the Customer Portal Cut off Time.';
                 ApplicationArea = All;
                 Editable = false;
             }

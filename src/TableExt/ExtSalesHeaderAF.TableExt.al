@@ -13,6 +13,18 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             TableRelation = "Delivery Run AF"."Run Code";
             ValidateTableRelation = true;
         }
+        field(50801; "Order Entry Time AF"; Time)
+        {
+            Caption = 'Order Entry Time';
+            DataClassification = CustomerContent;
+        }
+
+        field(50802; "Cust. Portal Cut off Time AF"; Time)
+        {
+            Caption = 'Cust. Portal Cut off Time';
+            DataClassification = CustomerContent;
+        }
+
         modify("Ship-to code")
         {
             trigger OnAfterValidate()
@@ -27,4 +39,18 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             end;
         }
     }
+
+    trigger OnInsert()
+    var
+
+    begin
+        //To-Do need to check if that should be recorded when using manual sales order only
+        SalesSetup.GET();
+        Rec."Cust. Portal Cut off Time AF" := SalesSetup."Cut off Time AF";
+        Rec."Order Entry Time AF" := Time;
+        //To-Do need to check if that should be recorded when using manual sales order only
+    end;
+
+    var
+        SalesSetup: Record "Sales & Receivables Setup";
 }
