@@ -1,3 +1,7 @@
+/// <summary>
+/// Page Sales Setup CP API AF (ID 50804).
+/// AF-001 - Developer - Christian Gonzales
+/// </summary>
 page 50804 "Sales Setup CP API AF"
 {
     APIPublisher = 'altafirma';
