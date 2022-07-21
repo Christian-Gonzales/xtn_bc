@@ -27,6 +27,21 @@ pageextension 50853 ExtSalesAndReceivablesSetupAF extends "Sales & Receivables S
                     ApplicationArea = All;
                     ToolTip = 'Specifies the date formula to calculate the Shipment Date when order entered after the Cut off time.';
                 }
+                field("Delivery Fee G/L Account"; Rec."Delivery Fee G/L Account")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the G/L account charging delivery fee on the sales order.';
+                }
+                field("Delivery Fee"; Rec."Delivery Fee")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the delivery fee amount.';
+                }
+                field("Minimum Order Value"; Rec."Minimum Order Value")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the minimum order total amount per sales transaction. Amount below this value will be charge delivery fee.';
+                }
             }
         }
     }

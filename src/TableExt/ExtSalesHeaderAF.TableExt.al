@@ -25,6 +25,12 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             DataClassification = CustomerContent;
         }
 
+        field(50810; "Delivery Fee AF"; Boolean)
+        {
+            Caption = 'Delivery Fee';
+            DataClassification = CustomerContent;
+        }
+
         modify("Ship-to code")
         {
             trigger OnAfterValidate()

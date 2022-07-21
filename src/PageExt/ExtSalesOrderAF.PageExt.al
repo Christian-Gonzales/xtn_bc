@@ -22,9 +22,16 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
                 Editable = false;
             }
 
-            field("Cust. Portal Cut off Time"; Rec."Cust. Portal Cut off Time AF")
+            field("Cust. Portal Cut off Time AF"; Rec."Cust. Portal Cut off Time AF")
             {
                 ToolTip = 'Specifies the Customer Portal Cut off Time.';
+                ApplicationArea = All;
+                Editable = false;
+            }
+
+            field("Delivery Fee AF"; Rec."Delivery Fee AF")
+            {
+                ToolTip = 'Specifies the sales line having a delivery fee.';
                 ApplicationArea = All;
                 Editable = false;
             }

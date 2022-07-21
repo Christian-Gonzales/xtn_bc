@@ -22,5 +22,23 @@ tableextension 50852 ExtSalesAndReceivablesSetupAF extends "Sales & Receivables 
             Caption = 'Delivery Time After Cut off';
             DataClassification = CustomerContent;
         }
+
+        field(50810; "Minimum Order Value"; Decimal)
+        {
+            Caption = 'Minimum Order Value';
+            DataClassification = CustomerContent;
+        }
+
+        field(50811; "Delivery Fee G/L Account"; Code[20])
+        {
+            Caption = 'Delivery Fee G/L Account';
+            DataClassification = CustomerContent;
+            TableRelation = "G/L Account"."No.";
+        }
+        field(50812; "Delivery Fee"; Decimal)
+        {
+            Caption = 'Delivery Fee';
+            DataClassification = CustomerContent;
+        }
     }
 }
