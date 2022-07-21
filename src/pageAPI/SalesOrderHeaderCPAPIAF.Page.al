@@ -16,7 +16,7 @@ page 50802 "Sales Order Header CP API AF"
     InsertAllowed = true;
     DeleteAllowed = false;
     SourceTableView = where("Document Type" = const(Order));
-    ODataKeyFields = "No.", "Document Type";
+    ODataKeyFields = "Document Type", "No.";
 
     layout
     {
@@ -24,14 +24,14 @@ page 50802 "Sales Order Header CP API AF"
         {
             repeater(GroupName)
             {
-                field("DocType"; Rec."Document Type")
+                field(recDocType; Rec."Document Type")
                 {
-                    Caption = 'No';
+                    Caption = 'recDocType';
                     ApplicationArea = All;
                 }
-                field(no; Rec."No.")
+                field(recNo; Rec."No.")
                 {
-                    Caption = 'No';
+                    Caption = 'recNo';
                     ApplicationArea = All;
                 }
                 field(docNo; DocNo)
