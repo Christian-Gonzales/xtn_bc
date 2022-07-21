@@ -1,5 +1,5 @@
 /// <summary>
-/// TableExtension ExtSalesLineAF (ID 50853) extends Record Sales Header.
+/// TableExtension ExtSalesLineAF (ID 50853) extends Record Sales Line.
 /// AF-001 - Developer - Christian Gonzales
 /// </summary>
 tableextension 50853 ExtSalesLineAF extends "Sales Line"
