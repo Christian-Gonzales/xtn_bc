@@ -36,10 +36,10 @@ page 50806 "Sales Order Line CP API AF"
                 }
                 field(reclineNo; Rec."Line No.")
                 {
-                    Caption = 'RecLineNo';
+                    Caption = 'recLineNo';
                     ApplicationArea = All;
                 }
-                field(DocNo; DocNo)
+                field(docNo; DocNo)
                 {
                     Caption = 'DocNo';
                     ApplicationArea = All;
@@ -81,10 +81,10 @@ page 50806 "Sales Order Line CP API AF"
         SalesOrderLine."Document No." := DocNo;
         SalesOrderLine."Line No." := LineNo;
         SalesOrderLine.INSERT(TRUE);
+        SalesOrderLine.Type := SalesOrderLine.Type::Item;
         SalesOrderLine.Validate("No.", ItemNo);
         SalesOrderLine.Validate(Quantity, Qty);
         SalesOrderLine.MODIFY(TRUE);
-
         UpdateResponse();
 
         exit(false);
