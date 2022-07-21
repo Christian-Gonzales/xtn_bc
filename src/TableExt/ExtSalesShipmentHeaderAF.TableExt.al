@@ -13,9 +13,9 @@ tableextension 50855 ExtSalesShipmentHeaderAF extends "Sales Shipment Header"
             TableRelation = "Delivery Run AF"."Run Code";
             ValidateTableRelation = true;
         }
-        field(50801; "Order Entry Time AF"; Time)
+        field(50801; "Order Entry Date/Time AF"; DateTime)
         {
-            Caption = 'Order Entry Time';
+            Caption = 'Order Entry Date/Time';
             DataClassification = CustomerContent;
         }
 

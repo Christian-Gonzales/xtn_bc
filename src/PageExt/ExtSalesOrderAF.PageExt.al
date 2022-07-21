@@ -15,9 +15,9 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
                 ApplicationArea = All;
                 Editable = false;
             }
-            field("Order Entry Time AF"; Rec."Order Entry Time AF")
+            field("Order Entry Date Time AF"; Rec."Order Entry Date/Time AF")
             {
-                ToolTip = 'Specifies the order entry time.';
+                ToolTip = 'Specifies the order entry date and time.';
                 ApplicationArea = All;
                 Editable = false;
             }

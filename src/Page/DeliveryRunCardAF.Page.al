@@ -32,7 +32,7 @@ page 50831 "Delivery Run Card AF"
 
             Group("Allowable Day")
             {
-                Caption = 'Setup';
+                Caption = 'Allowed Run Days';
                 field(Monday; Rec.Monday)
                 {
                     ApplicationArea = All;
