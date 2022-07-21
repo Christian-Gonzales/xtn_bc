@@ -43,6 +43,16 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
         // Add changes to page actions here
     }
 
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        //Record this on page level, recording from API is the value coming from CP
+        SalesSetup.GET();
+        Rec."Cust. Portal Cut off Time AF" := SalesSetup."Cut off Time AF";
+        Rec."Order Entry Date/Time AF" := CurrentDateTime;
+        //Record this on page level, recording from API is the value coming from CP   
+    end;
+
     var
+        SalesSetup: Record "Sales & Receivables Setup";
 
 }

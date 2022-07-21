@@ -51,13 +51,9 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
     var
 
     begin
-        //To-Do need to check if that should be recorded when using manual sales order only
-        SalesSetup.GET();
-        Rec."Cust. Portal Cut off Time AF" := SalesSetup."Cut off Time AF";
-        Rec."Order Entry Date/Time AF" := CurrentDateTime;
-        //To-Do need to check if that should be recorded when using manual sales order only
+
     end;
 
     var
-        SalesSetup: Record "Sales & Receivables Setup";
+
 }

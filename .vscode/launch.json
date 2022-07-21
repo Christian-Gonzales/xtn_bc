@@ -15,7 +15,7 @@
             "environmentName": "DEVT",
             "environmentType": "Sandbox",
             // "sandboxName": "Sandbox"
-            "schemaUpdateMode": "ForceSync",
+            //"schemaUpdateMode": "ForceSync",
         }
     ]
 }
