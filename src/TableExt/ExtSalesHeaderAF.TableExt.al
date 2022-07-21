@@ -29,6 +29,7 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
         {
             Caption = 'Delivery Fee';
             DataClassification = CustomerContent;
+            Editable = false;
         }
 
         modify("Ship-to code")
