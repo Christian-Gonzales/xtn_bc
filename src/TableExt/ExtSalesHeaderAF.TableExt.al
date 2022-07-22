@@ -45,6 +45,15 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
                         Rec."Delivery Run Code AF" := ShipToAddress."Delivery Run Code AF";
             end;
         }
+        modify("Posting Date")
+        {
+            trigger OnAfterValidate()
+            var
+                CPmngmnt: Codeunit "Customer Portal Management AF";
+            begin
+                CPmngmnt.ConvertDeiveryRunSetupToCount(Rec);
+            end;
+        }
     }
 
     trigger OnInsert()
