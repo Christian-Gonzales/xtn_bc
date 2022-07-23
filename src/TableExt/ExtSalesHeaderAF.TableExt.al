@@ -17,6 +17,13 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
         {
             Caption = 'Order Entry Date/Time';
             DataClassification = CustomerContent;
+
+            trigger OnValidate()
+            var
+                ShipmentDateMngmnt: Codeunit "Shipment Date Mngmnt AF";
+            begin
+                ShipmentDateMngmnt.CalculateShimentDate(Rec);
+            end;
         }
 
         field(50802; "Cust. Portal Cut off Time AF"; Time)
@@ -43,15 +50,6 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
                         Error('Delivery Run Code field must have a value in Ship-to Address %1', Rec."Ship-to Code")
                     Else
                         Rec."Delivery Run Code AF" := ShipToAddress."Delivery Run Code AF";
-            end;
-        }
-        modify("Posting Date")
-        {
-            trigger OnAfterValidate()
-            var
-                CPmngmnt: Codeunit "Customer Portal Management AF";
-            begin
-                CPmngmnt.ConvertDeiveryRunSetupToCount(Rec);
             end;
         }
     }

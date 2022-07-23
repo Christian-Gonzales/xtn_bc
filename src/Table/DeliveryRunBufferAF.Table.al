@@ -35,6 +35,12 @@ table 50831 "Delivery Run Buffer AF"
             DataClassification = CustomerContent;
 
         }
+
+        field(13; "Calculated Date"; Date)
+        {
+            Caption = 'Calculated Date';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys

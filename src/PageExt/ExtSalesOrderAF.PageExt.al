@@ -7,6 +7,14 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
     layout
     {
         // Add changes to page layout here
+        addafter("Posting Date")
+        {
+            field("Shipment Date AF"; Rec."Shipment Date")
+            {
+                ToolTip = 'Specifies when items on the document are shipped or were shipped. A shipment date is usually calculated from a requested delivery date plus lead time.';
+                ApplicationArea = All;
+            }
+        }
         addlast(General)
         {
             field("Delivery Run Code AF"; Rec."Delivery Run Code AF")
@@ -19,7 +27,7 @@ pageextension 50852 ExtSalesOrderAF extends "Sales Order"
             {
                 ToolTip = 'Specifies the order entry date and time.';
                 ApplicationArea = All;
-                Editable = false;
+                Editable = true;
             }
 
             field("Cust. Portal Cut off Time AF"; Rec."Cust. Portal Cut off Time AF")
