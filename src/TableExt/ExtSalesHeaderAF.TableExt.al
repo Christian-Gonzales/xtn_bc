@@ -22,7 +22,7 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             var
                 ShipmentDateMngmnt: Codeunit "Shipment Date Mngmnt AF";
             begin
-                ShipmentDateMngmnt.CalculateShimentDate(Rec);
+                ShipmentDateMngmnt.CalculateShipmentDate(Rec);
             end;
         }
 
