@@ -56,7 +56,16 @@ page 50802 "Sales Order Header CP API AF"
                     Caption = 'ShipmentDate';
                     ApplicationArea = All;
                 }
-
+                field(shipToCode; ShipToCode)
+                {
+                    Caption = 'ShipToCode';
+                    ApplicationArea = All;
+                }
+                field(deliveryRunCode; DeliveryRunCode)
+                {
+                    Caption = 'DeliveryRunCode';
+                    ApplicationArea = All;
+                }
             }
         }
     }
@@ -67,6 +76,8 @@ page 50802 "Sales Order Header CP API AF"
         SellToCustomerNo := Rec."Sell-to Customer No.";
         ExternalDocNo := Rec."External Document No.";
         ShipmentDate := Rec."Shipment Date";
+        ShipToCode := Rec."Ship-to Code";
+        DeliveryRunCode := Rec."Delivery Run Code AF";
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -81,6 +92,8 @@ page 50802 "Sales Order Header CP API AF"
         SalesOrderHeader.Validate("Sell-to Customer No.", SellToCustomerNo);
         SalesOrderHeader."External Document No." := ExternalDocNo;
         SalesOrderHeader."Shipment Date" := ShipmentDate;
+        SalesOrderHeader."Ship-to Code" := ShipToCode;
+        SalesOrderHeader."Delivery Run Code AF" := DeliveryRunCode;
         SalesOrderHeader.MODIFY(TRUE);
 
         UpdateResponse();
@@ -104,6 +117,8 @@ page 50802 "Sales Order Header CP API AF"
         SellToCustomerNo := SalesOrderHeader."Sell-to Customer No.";
         ExternalDocNo := SalesOrderHeader."External Document No.";
         ShipmentDate := SalesOrderHeader."Shipment Date";
+        ShipToCode := SalesOrderHeader."Ship-to Code";
+        DeliveryRunCode := SalesOrderHeader."Delivery Run Code AF";
     end;
 
     /// <summary>
@@ -136,5 +151,7 @@ page 50802 "Sales Order Header CP API AF"
         ExternalDocNo: Code[20];
 
         ShipmentDate: Date;
+        ShipToCode: Code[10];
+        DeliveryRunCode: Code[20];
 
 }

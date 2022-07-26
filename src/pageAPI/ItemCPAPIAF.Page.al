@@ -47,11 +47,11 @@ page 50801 "Item CP API AF"
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field(itemPicture; PictureAsText)
-                {
-                    ApplicationArea = All;
-                    Editable = false;
-                }
+                //field(itemPicture; PictureAsText)
+                //{
+                //ApplicationArea = All;
+                //Editable = false;
+                //}
             }
         }
 
@@ -59,12 +59,12 @@ page 50801 "Item CP API AF"
 
     trigger OnAfterGetRecord()
     var
-        PictureMngmnt: Codeunit "Picture Mngmnt AF";
+    //PictureMngmnt: Codeunit "Picture Mngmnt AF";
 
     begin
-        PictureAsText := PictureMngmnt.GetItemPictureAsJson(Rec."No.");
+        //PictureAsText := PictureMngmnt.GetItemPictureAsJson(Rec."No.");
     end;
 
     var
-        PictureAsText: Text;
+    //PictureAsText: Text;
 }
