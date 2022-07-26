@@ -22,7 +22,7 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             var
                 ShipmentDateMngmnt: Codeunit "Shipment Date Mngmnt AF";
             begin
-                ShipmentDateMngmnt.CalculateShipmentDate(Rec);
+                ShipmentDateMngmnt.CalculateShipmentDate(Rec); //need to add condition if manual input from BC only not from integration
             end;
         }
 
@@ -45,22 +45,28 @@ tableextension 50851 ExtSalesHeaderAF extends "Sales Header"
             var
                 ShipToAddress: Record "Ship-to Address";
             begin
+
                 If ShipToAddress.Get(Rec."Sell-to Customer No.", Rec."Ship-to Code") then
                     If ShipToAddress."Delivery Run Code AF" = '' then
                         Error('Delivery Run Code field must have a value in Ship-to Address %1', Rec."Ship-to Code")
                     Else
                         Rec."Delivery Run Code AF" := ShipToAddress."Delivery Run Code AF";
+
             end;
         }
     }
 
-    trigger OnInsert()
+    trigger OnAfterInsert()
     var
 
     begin
-
+        //need to add condition if manual input from BC only not from integration
+        SalesSetup.GET();
+        Rec."Cust. Portal Cut off Time AF" := SalesSetup."Cut off Time AF";
+        Rec.Validate("Order Entry Date/Time AF", CurrentDateTime);
     end;
 
     var
+        SalesSetup: Record "Sales & Receivables Setup";
 
 }
