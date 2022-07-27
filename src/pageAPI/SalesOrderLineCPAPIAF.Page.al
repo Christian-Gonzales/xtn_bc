@@ -93,7 +93,7 @@ page 50806 "Sales Order Line CP API AF"
     trigger OnModifyRecord(): Boolean
     begin
         Rec."No." := ItemNo;
-        Rec.Quantity := Qty;
+        Rec.validate(Quantity,Qty);
     end;
 
     /// <summary>
